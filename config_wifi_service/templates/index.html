@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Config wifi</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='./bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='./style.css')}}"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Setup wifi</h5>
+                        <form class="form-signin" action="http://192.168.137.2:8000/" method="POST">
+                            <div class="form-label-group">
+                                <select name="ssid" id="ssid"  class="form-control sel">
+                                    {% for ssid in ssids%}
+                                    <option value='{{ssid}}'>{{ssid}}</option>
+                                    {%endfor%}
+                                </select>
+                                
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" name="pwd" placeholder="Password" required>
+                                <label for="inputPassword">Passwrod</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Change Wifi</button>
+                        </form>
+			{{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

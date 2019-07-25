@@ -15,9 +15,14 @@ def get_ssids():
         list_ssid.append(c.ssid)
     return list_ssid
 
+@app.route('/update', methods=['POST'])
+def connect():
+    if request.method=='POST':
+       os.system("../update.sh")
+       return render_template('index.html', message_update="Updating firmware, please wait to reset")
 
 @app.route('/', methods=['POST','GET'])
-def connect():
+def connect2():
     if request.method=='POST':
        list_ssid = get_ssids()
        result = request.form
@@ -37,11 +42,7 @@ def connect():
        list_ssid = get_ssids()
        return render_template('index.html', ssids=list_ssid)
 
-@app.route('/update', methods=['POST'])
-def connect():
-    if request.method=='POST':
-       os.system("../update.sh")
-       return render_template('index.html', message_update="Updating firmware, please wait to reset")
+
     
 
 if __name__ == '__main__':

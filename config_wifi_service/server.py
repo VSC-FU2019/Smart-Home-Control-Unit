@@ -23,7 +23,7 @@ def get_ssids():
         list_ssid.append(c.ssid)
     return list_ssid
 
-@app.route('/update', methods=['POST'])
+@app.route('/update', methods=['POST', 'GET'])
 def connect():
     if request.method=='POST':
        if is_internet() == True:

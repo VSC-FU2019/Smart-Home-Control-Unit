@@ -37,9 +37,8 @@ def connect():
        list_ssid = get_ssids()
        return render_template('index.html', ssids=list_ssid)
 
-@app.route('/update', methods=['POST'])
+@app.route('/update', method='POST')
 def connect():
-    if request.method=='POST':
        os.system("../update.sh")
        return render_template('index.html', message_update="Updating firmware, please wait to reset")
     

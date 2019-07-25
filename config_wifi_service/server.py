@@ -27,7 +27,7 @@ def get_ssids():
 def connect():
     if request.method=='POST':
        if (is_internet())
-           os.system("../update.sh")
+           os.system(os.getcwd()  + "/../update.sh")
            return render_template('index.html', message_update="Updating firmware, please wait to reset")
        else:
 	   return render_template('index.html', message_update="Please connect the internet")

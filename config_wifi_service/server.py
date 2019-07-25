@@ -28,9 +28,11 @@ def connect():
     if request.method=='POST':
        if is_internet() == True:
            os.system(os.getcwd()  + "/../update.sh")
-           return render_template('index.html', message_update="Updating firmware, please wait to reset")
+           return render_template('index.html', message_update="Update successfully")
        else:
            return render_template('index.html', message_update="Please connect the internet")
+    else:
+       return render_template('index.html', message_update="Update successfully")
 
 @app.route('/', methods=['POST','GET'])
 def connect2():

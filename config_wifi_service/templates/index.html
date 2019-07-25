@@ -41,8 +41,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Update Firmware</h5>
                         <form class="form-signin" action="http://192.168.137.2:8000/update" method="POST">
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Update</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="btn-update">Update</button>
                         </form>
+                        <div style="display: none" id="message-update">Updating firmware, please wait to reset </div>
                         {{message_update}}
                     </div>
                 </div>
@@ -50,5 +51,9 @@
         </div>
     </div>
 </body>
-
+<script>
+    document.getElementById("btn-update").addEventListener("click", function () {
+        document.getElementById("message-update").style.display = "block"
+    })
+</script>
 </html>

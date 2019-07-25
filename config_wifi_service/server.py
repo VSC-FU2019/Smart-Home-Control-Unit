@@ -26,7 +26,7 @@ def get_ssids():
 @app.route('/update', methods=['POST'])
 def connect():
     if request.method=='POST':
-       if (is_internet())
+       if (is_internet() == True)
            os.system(os.getcwd()  + "/../update.sh")
            return render_template('index.html', message_update="Updating firmware, please wait to reset")
        else:

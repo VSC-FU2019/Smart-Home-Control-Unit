@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
 from wifi import Cell
+import os
 import config
 app = Flask(__name__)
 
@@ -35,6 +36,13 @@ def connect():
     if request.method=='GET':
        list_ssid = get_ssids()
        return render_template('index.html', ssids=list_ssid)
+
+@app.route('/update', methods=['POST'])
+def connect():
+    if request.method=='POST':
+       os.system("../update.sh")
+       return render_template('index.html', message_update="Updating firmware, please wait to reset")
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)

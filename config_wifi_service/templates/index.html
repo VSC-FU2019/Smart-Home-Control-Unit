@@ -35,6 +35,19 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Update Firmware</h5>
+                        <form class="form-signin" action="http://192.168.137.2:8000/update" method="POST">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Update</button>
+                        </form>
+                        {{message_update}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

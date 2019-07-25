@@ -3,6 +3,14 @@ from wifi import Cell
 import os
 import config
 app = Flask(__name__)
+import urllib2
+
+def is_internet():
+    try:
+        urllib2.urlopen('http://www.google.com', timeout=1)
+        return True
+    except urllib2.URLError as err: 
+        return False
 
 
 def get_ssids():
@@ -18,8 +26,11 @@ def get_ssids():
 @app.route('/update', methods=['POST'])
 def connect():
     if request.method=='POST':
-       os.system("../update.sh")
-       return render_template('index.html', message_update="Updating firmware, please wait to reset")
+       if (is_internet())
+           os.system("../update.sh")
+           return render_template('index.html', message_update="Updating firmware, please wait to reset")
+       else:
+	   return render_template('index.html', message_update="Please connect the internet")
 
 @app.route('/', methods=['POST','GET'])
 def connect2():

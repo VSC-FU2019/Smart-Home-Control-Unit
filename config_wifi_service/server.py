@@ -3,7 +3,7 @@ from wifi import Cell
 import os
 import config
 app = Flask(__name__)
-import urllib2
+import urllib.request as urllib2
 
 def is_internet():
     try:
@@ -30,7 +30,7 @@ def connect():
            os.system(os.getcwd()  + "/../update.sh")
            return render_template('index.html', message_update="Updating firmware, please wait to reset")
        else:
-	   return render_template('index.html', message_update="Please connect the internet")
+           return render_template('index.html', message_update="Please connect the internet")
 
 @app.route('/', methods=['POST','GET'])
 def connect2():

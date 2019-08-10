@@ -10,3 +10,4 @@ PREDICT_SAMPLES = 16000
 MIN_COMMAND_PROB = 0.1
 TRIGGER_WORD_INDEX = 15
 MQTT_BROKER_IP = 'localhost' ## thay bang ip cua pi 192.xxx.xxx.xxx
+NUMB_CONTI_COMMAND = 2

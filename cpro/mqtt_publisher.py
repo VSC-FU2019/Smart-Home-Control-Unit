@@ -42,7 +42,7 @@ class MqttPublisher():
             self.led.off()
             self.said_trigger_word = False
             self.trigger_word_time_life = 0
-        
+        print(command_index, command_prob)
         ## logic quyet dinh command hop le
         if command_prob >= Constant.MIN_COMMAND_PROB:
             if len(self.command_series) > 0 and command_index != self.command_series[-1]:
@@ -50,7 +50,7 @@ class MqttPublisher():
 
             self.command_series.append(command_index)
             
-            if len(self.command_series) == 3:
+            if len(self.command_series) == Constant.NUMB_CONTI_COMMAND:
                 if command_index == Constant.TRIGGER_WORD_INDEX:
                     #print('Doraemon')
                 #    os.system('aplay -D loa /home/pi/cpro/xin_chao.wav')
@@ -60,7 +60,7 @@ class MqttPublisher():
                 else:
                     if self.said_trigger_word:
                         if command_index != 0:
-                            print(command_index)
+                            #print(command_index)
                             publisher.single(self.command_dictionary[command_index]['topic'], self.command_dictionary[command_index]['action'], hostname=Constant.MQTT_BROKER_IP)
     
                             ## reset

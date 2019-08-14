@@ -3,7 +3,7 @@ import numpy as np
 
 class CommandPrediction():
     def __init__(self):
-        self.model = load_model('model/train_20190704.h5')
+        self.model = load_model('model/model-14-08.h5')
         #self.model.summary()
         print('---------------- Load model successfully -----------------')
         
